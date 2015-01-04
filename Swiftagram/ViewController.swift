@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    // activity spinner indicator
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
     // MARK: View Initialization
     
     override func viewDidLoad()
@@ -23,12 +26,48 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         super.didReceiveMemoryWarning()
     }
     
+    @IBAction func pause(sender: AnyObject)
+    {
+        // inital activity indicator setup
+        activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0.0, 0.0, 50, 50))
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true;
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        
+        // add to view and start animation
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        
+        //UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+    }
+    
+    @IBAction func restore(sender: AnyObject)
+    {
+        // stop animation
+        activityIndicator.stopAnimating()
+        
+        //UIApplication.sharedApplication().endIgnoringInteractionEvents()
+    }
+    
+    @IBAction func createAlert(sender: AnyObject)
+    {
+        // init alert
+        var alert = UIAlertController(title: "Yo", message: "whats good", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { action in
+            // dismiss alert on button press
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        
+        // show the alert
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     // MARK: UIImage Control
     
-    // image view
+    // image view outlet
     @IBOutlet weak var pickedImage: UIImageView!
     
-    // chooses images
+    // chooses images action
     @IBAction func pickImage(sender: AnyObject)
     {
         // init picker controller
@@ -52,8 +91,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     // MARK: Image Picker Delegate Methods
     
     // user did finishing picking an image
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!)
+    {
         NSLog("Picked Image")
         
         // close image picker
@@ -65,21 +104,15 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 
 }
 
-
-
-
-
 // MARK: Extra Parse Methods
 
-/*
+/********
 // set up Parse application
 Parse.setApplicationId("wabvjYL0hvJHpUDFGNceYAM6f7zrlS9s3qRBqn9O",
 clientKey: "JHBuhVrPu6neUZwwydgKQMqDOSIlq8eCdtzRKDtA")
-*/
-
+********/
 
 /********
-
 //////////////////////////////////////////////////
 // CREATING AND SAVING NEW PARSE CLASS + OBJECT //
 //////////////////////////////////////////////////
@@ -102,10 +135,7 @@ NSLog("Error: %@", error);
 }
 ********/
 
-
-
 /********
-
 /////////////////////////////////////////////////////////
 // QUERY, UPDATING AND SAVING NEW PARSE CLASS + OBJECT //
 /////////////////////////////////////////////////////////
@@ -137,6 +167,5 @@ else
 NSLog("Error: %@", error);
 }
 }
-
 ********/
 

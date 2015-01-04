@@ -8,28 +8,74 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    // MARK: View Initialization
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        // set up Parse application
-        Parse.setApplicationId("wabvjYL0hvJHpUDFGNceYAM6f7zrlS9s3qRBqn9O",
-              clientKey: "JHBuhVrPu6neUZwwydgKQMqDOSIlq8eCdtzRKDtA")
-        
-        
-        
     }
-
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: UIImage Control
+    
+    // image view
+    @IBOutlet weak var pickedImage: UIImageView!
+    
+    // chooses images
+    @IBAction func pickImage(sender: AnyObject)
+    {
+        // init picker controller
+        var image = UIImagePickerController()
+        
+        // set delegate
+        image.delegate = self
+        
+        // access photo library
+        image.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        // access camera
+        //image.sourceType = UIImagePickerControllerSourceType.Camera
+        
+        // allows user to edit picture
+        image.allowsEditing = false
+    
+        // present the picker controller
+        self.presentViewController(image, animated: true, completion: nil)
+    }
+    
+    // MARK: Image Picker Delegate Methods
+    
+    // user did finishing picking an image
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        
+        NSLog("Picked Image")
+        
+        // close image picker
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        // set chosen image to UIImage
+        pickedImage.image = image
     }
 
 }
 
 
+
+
+
+// MARK: Extra Parse Methods
+
+/*
+// set up Parse application
+Parse.setApplicationId("wabvjYL0hvJHpUDFGNceYAM6f7zrlS9s3qRBqn9O",
+clientKey: "JHBuhVrPu6neUZwwydgKQMqDOSIlq8eCdtzRKDtA")
+*/
 
 
 /********

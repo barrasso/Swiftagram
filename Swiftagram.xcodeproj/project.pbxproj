@@ -139,8 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				04ACE5DD1A535E5200E0BBB5 /* AppDelegate.swift */,
-				04ACE5DF1A535E5200E0BBB5 /* ViewController.swift */,
 				04ACE62F1A5AF01D00E0BBB5 /* LoginViewController.swift */,
+				04ACE5DF1A535E5200E0BBB5 /* ViewController.swift */,
 				04ACE5E11A535E5200E0BBB5 /* Main.storyboard */,
 				04ACE5E41A535E5200E0BBB5 /* Images.xcassets */,
 				04ACE5E61A535E5200E0BBB5 /* LaunchScreen.xib */,
@@ -234,6 +234,7 @@
 				TargetAttributes = {
 					04ACE5D71A535E5200E0BBB5 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 3GBQ2H4QX7;
 					};
 					04ACE5EC1A535E5200E0BBB5 = {
 						CreatedOnToolsVersion = 6.1.1;

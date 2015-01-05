@@ -106,13 +106,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUB-6X-DsV">
-                                <rect key="frame" x="139" y="380" width="96" height="32"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUB-6X-DsV">
+                                <rect key="frame" x="139" y="367" width="96" height="32"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="96" id="8Tp-Gl-TXM"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="cui-8X-WhK"/>
                                     <constraint firstAttribute="width" constant="96" id="htG-Pw-Inr"/>
                                     <constraint firstAttribute="height" constant="32" id="lRf-cq-56K"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -120,22 +122,81 @@
                                     <action selector="signUp:" destination="YmO-fr-2bC" eventType="touchUpInside" id="fSa-2X-9MR"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already registered?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQn-Xe-Phl">
+                                <rect key="frame" x="101" y="414" width="118" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="mR0-6z-Xor"/>
+                                    <constraint firstAttribute="width" constant="118" id="ouL-Tv-wkr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnI-jb-62x">
+                                <rect key="frame" x="216" y="410" width="67" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5AV-9K-lLh"/>
+                                    <constraint firstAttribute="width" constant="67" id="EZA-ZS-Uiq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleSignup:" destination="YmO-fr-2bC" eventType="touchUpInside" id="Fej-HD-p4t"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YyU-23-3fL">
+                                <rect key="frame" x="166" y="415" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="G9X-IG-bYI"/>
+                                    <constraint firstAttribute="width" constant="42" id="v2i-fg-fYi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up to get started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFu-PD-dSw">
+                                <rect key="frame" x="101" y="177" width="173" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="ChN-aw-tjB"/>
+                                    <constraint firstAttribute="width" constant="173" id="WVt-0t-tyy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="NUB-6X-DsV" secondAttribute="centerX" id="3v9-6i-JMs"/>
                             <constraint firstItem="KC9-ym-efr" firstAttribute="top" secondItem="yB4-b8-n0A" secondAttribute="bottom" constant="18" id="5eO-ia-JRB"/>
+                            <constraint firstItem="MQn-Xe-Phl" firstAttribute="top" secondItem="NUB-6X-DsV" secondAttribute="bottom" constant="15" id="8LY-nS-DVp"/>
                             <constraint firstItem="NUB-6X-DsV" firstAttribute="top" secondItem="KC9-ym-efr" secondAttribute="bottom" constant="21" id="AP6-nP-fko"/>
                             <constraint firstAttribute="centerX" secondItem="i7F-vJ-fhy" secondAttribute="centerX" id="Bvd-O7-hAe"/>
+                            <constraint firstAttribute="centerX" secondItem="YyU-23-3fL" secondAttribute="centerX" id="FlJ-rM-aYb"/>
                             <constraint firstAttribute="centerX" secondItem="yB4-b8-n0A" secondAttribute="centerX" id="KCW-Is-uTw"/>
+                            <constraint firstItem="NUB-6X-DsV" firstAttribute="top" secondItem="KC9-ym-efr" secondAttribute="bottom" constant="8" id="Nnf-w2-gMh"/>
+                            <constraint firstItem="YyU-23-3fL" firstAttribute="top" secondItem="NUB-6X-DsV" secondAttribute="bottom" constant="16" id="Qe5-8U-6Qp"/>
                             <constraint firstAttribute="centerX" secondItem="KC9-ym-efr" secondAttribute="centerX" id="SEd-uU-m4o"/>
+                            <constraint firstItem="RFu-PD-dSw" firstAttribute="top" secondItem="i7F-vJ-fhy" secondAttribute="bottom" constant="37" id="Vu5-Qh-PTs"/>
+                            <constraint firstAttribute="centerX" secondItem="NUB-6X-DsV" secondAttribute="centerX" id="aCV-La-lvT"/>
+                            <constraint firstItem="rnI-jb-62x" firstAttribute="top" secondItem="NUB-6X-DsV" secondAttribute="bottom" constant="11" id="bWk-V5-kUf"/>
+                            <constraint firstItem="rnI-jb-62x" firstAttribute="leading" secondItem="YyU-23-3fL" secondAttribute="trailing" constant="19" id="cFw-Wx-P2X"/>
+                            <constraint firstAttribute="centerX" secondItem="RFu-PD-dSw" secondAttribute="centerX" id="cg5-D1-lGx"/>
                             <constraint firstItem="yB4-b8-n0A" firstAttribute="top" secondItem="i7F-vJ-fhy" secondAttribute="bottom" constant="141" id="hlc-JA-FMo"/>
                             <constraint firstItem="i7F-vJ-fhy" firstAttribute="top" secondItem="hzZ-Gz-KC6" secondAttribute="bottom" constant="59" id="rOi-te-MBO"/>
+                            <constraint firstItem="YyU-23-3fL" firstAttribute="leading" secondItem="MQn-Xe-Phl" secondAttribute="trailing" constant="-53" id="rbd-Mo-MNh"/>
+                            <constraint firstAttribute="centerX" secondItem="NUB-6X-DsV" secondAttribute="centerX" constant="-1" id="wsP-Qz-NVl"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="alreadyRegistered" destination="MQn-Xe-Phl" id="K7j-9A-BUl"/>
                         <outlet property="password" destination="KC9-ym-efr" id="FnV-1F-d81"/>
+                        <outlet property="signUpLabel" destination="RFu-PD-dSw" id="rk1-5N-E4T"/>
+                        <outlet property="signupButton" destination="NUB-6X-DsV" id="jij-5b-m3f"/>
+                        <outlet property="signupToggleButton" destination="rnI-jb-62x" id="1V1-PY-O6v"/>
                         <outlet property="username" destination="yB4-b8-n0A" id="Nbi-07-bDk"/>
                     </connections>
                 </viewController>

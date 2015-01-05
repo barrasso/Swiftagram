@@ -14,6 +14,43 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    // Buttons
+    @IBOutlet weak var signupButton: UIButton!
+    @IBOutlet weak var signupToggleButton: UIButton!
+    
+    // Labels
+    @IBOutlet weak var signUpLabel: UILabel!
+    @IBOutlet weak var alreadyRegistered: UILabel!
+    
+    @IBAction func toggleSignup(sender: AnyObject)
+    {
+        if (signUpActive == true)
+        {
+            // disable signup mode
+            signUpActive = false
+            
+            // change text of items
+            signUpLabel.text = "Log in to get started"
+            alreadyRegistered.text = "Not registered yet?"
+            signupButton.setTitle("Log In", forState: UIControlState.Normal)
+            signupToggleButton.setTitle("Sign Up", forState: UIControlState.Normal)
+        }
+        else
+        {
+            // enable signup mode
+            signUpActive = true
+            
+            // change text of items
+            signUpLabel.text = "Sign up to get started"
+            alreadyRegistered.text = "Already registered?"
+            signupButton.setTitle("Sign Up", forState: UIControlState.Normal)
+            signupToggleButton.setTitle("Log In", forState: UIControlState.Normal)
+        }
+    }
+    
+    // bool flags
+    var signUpActive = true
+    
     // activity spinner indicator
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     

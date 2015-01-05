@@ -22,6 +22,26 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signUpLabel: UILabel!
     @IBOutlet weak var alreadyRegistered: UILabel!
     
+    // bool flags
+    var signUpActive = true
+    
+    // activity spinner indicator
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    // MARK: View Initialization
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+    }
+    
+    override func didReceiveMemoryWarning()
+    {
+        super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: Signup Functions
+    
     @IBAction func toggleSignup(sender: AnyObject)
     {
         if (signUpActive == true)
@@ -47,26 +67,6 @@ class LoginViewController: UIViewController {
             signupToggleButton.setTitle("Log In", forState: UIControlState.Normal)
         }
     }
-    
-    // bool flags
-    var signUpActive = true
-    
-    // activity spinner indicator
-    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-    
-    // MARK: View Initialization
-    
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-    }
-    
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-    }
-    
-    // MARK: Signup Functions
     
     @IBAction func signUp(sender: AnyObject)
     {
@@ -118,31 +118,69 @@ class LoginViewController: UIViewController {
             // begin ignoring user interaction
             UIApplication.sharedApplication().beginIgnoringInteractionEvents()
             
-            // sign up in background
-            user.signUpInBackgroundWithBlock {
-                (succeeded: Bool!, signupError: NSError!) -> Void in
-                if signupError == nil {
-                    
-                    // stop animation and end ignoring events
-                    self.activityIndicator.stopAnimating()
-                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
-                    
-                    // now user can use app
-                    
-                } else {
-                    
-                    // stop animation and end ignoring events
-                    self.activityIndicator.stopAnimating()
-                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
-                    
-                    // might be an error to display
-                    if let errorString = signupError.userInfo?["error"] as? NSString {
-                        error = errorString
+            // check if sign up is active
+            if (signUpActive == true)
+            {
+                // sign up in background
+                user.signUpInBackgroundWithBlock
+                {
+                    (succeeded: Bool!, signupError: NSError!) -> Void in
+                    if signupError == nil {
+                        
+                        // stop animation and end ignoring events
+                        self.activityIndicator.stopAnimating()
+                        UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                        
+                        // now user can use app
+                        NSLog("Signed Up.")
+
+                        
                     } else {
-                        error = "Oops. Something went wrong."
+                        
+                        // stop animation and end ignoring events
+                        self.activityIndicator.stopAnimating()
+                        UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                        
+                        // might be an error to display
+                        if let errorString = signupError.userInfo?["error"] as? NSString {
+                            error = errorString
+                        } else {
+                            error = "Oops. Something went wrong."
+                        }
+                        
+                        self.displayAlert("Could Not Sign Up", error: error)
                     }
-                    
-                    self.displayAlert("Could Not Sign Up", error: error)
+                }
+            }
+            // if login is active
+            else if (signUpActive == false)
+            {
+                PFUser.logInWithUsernameInBackground(username.text, password:password.text) {
+                    (user: PFUser!, loginError: NSError!) -> Void in
+                    if loginError == nil {
+                        
+                        // stop animation and end ignoring events
+                        self.activityIndicator.stopAnimating()
+                        UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                        
+                        NSLog("Logged In.")
+                        
+                    } else {
+                        
+                        // stop animation and end ignoring events
+                        self.activityIndicator.stopAnimating()
+                        UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                        
+                        // might be an error to display
+                        if let errorString = loginError.userInfo?["error"] as? NSString {
+                            error = errorString
+                        } else {
+                            error = "Oops. Something went wrong."
+                        }
+                        
+                        self.displayAlert("Invalid Login", error: error)
+                        
+                    }
                 }
             }
         }

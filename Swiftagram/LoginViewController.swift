@@ -14,13 +14,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    // activity spinner indicator
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     // MARK: View Initialization
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
     }
     
     override func didReceiveMemoryWarning()
@@ -53,10 +54,13 @@ class LoginViewController: UIViewController {
         }
         
         // if the error string is not empty
-        if (error != "") {
+        if (error != "")
+        {
             self.displayAlert("Form Error", error: error)
         }
-        else {
+            
+        else
+        {
             // create a new PFUser
             var user = PFUser()
             
@@ -64,13 +68,36 @@ class LoginViewController: UIViewController {
             user.username = username.text
             user.password = password.text
             
+            // inital activity indicator setup
+            activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0.0, 0.0, 50, 50))
+            activityIndicator.center = self.view.center
+            activityIndicator.hidesWhenStopped = true;
+            activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+            
+            // add to view and start animation
+            view.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            
+            // begin ignoring user interaction
+            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+            
             // sign up in background
             user.signUpInBackgroundWithBlock {
                 (succeeded: Bool!, signupError: NSError!) -> Void in
                 if signupError == nil {
+                    
+                    // stop animation and end ignoring events
+                    self.activityIndicator.stopAnimating()
+                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                    
                     // now user can use app
                     
                 } else {
+                    
+                    // stop animation and end ignoring events
+                    self.activityIndicator.stopAnimating()
+                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                    
                     // might be an error to display
                     if let errorString = signupError.userInfo?["error"] as? NSString {
                         error = errorString

@@ -10,22 +10,23 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    // Text Fields
+    // MARK: Text Fields
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     
-    // Buttons
+    // MARK: Buttons
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var signupToggleButton: UIButton!
     
-    // Labels
+    // MARK: Labels
     @IBOutlet weak var signUpLabel: UILabel!
     @IBOutlet weak var alreadyRegistered: UILabel!
     
-    // bool flags
+    // MARK: Boolean flags
     var signUpActive = true
     
-    // activity spinner indicator
+    // MARK: Other Vars
+    // Activity spinner indicator
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     // MARK: View Initialization
@@ -40,7 +41,7 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    // MARK: Signup Functions
+    // MARK: Signup Actions
     
     @IBAction func toggleSignup(sender: AnyObject)
     {
@@ -179,7 +180,6 @@ class LoginViewController: UIViewController {
                         }
                         
                         self.displayAlert("Invalid Login", error: error)
-                        
                     }
                 }
             }

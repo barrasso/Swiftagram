@@ -10,7 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    
+    // Text Fields
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     
@@ -28,6 +28,7 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    // MARK: Signup Functions
     
     @IBAction func signUp(sender: AnyObject)
     {
@@ -52,16 +53,48 @@ class LoginViewController: UIViewController {
         }
         
         // if the error string is not empty
-        if (error != "")
-        {
-            // display error alert
-            var errortAlert = UIAlertController(title: "Error", message: error, preferredStyle: UIAlertControllerStyle.Alert)
-            errortAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { action in
-                
-                self.dismissViewControllerAnimated(true, completion: nil)
-            }))
-            
-            self.presentViewController(errortAlert, animated: true, completion: nil)
+        if (error != "") {
+            self.displayAlert("Form Error", error: error)
         }
+        else {
+            // create a new PFUser
+            var user = PFUser()
+            
+            // set the user's name and password
+            user.username = username.text
+            user.password = password.text
+            
+            // sign up in background
+            user.signUpInBackgroundWithBlock {
+                (succeeded: Bool!, signupError: NSError!) -> Void in
+                if signupError == nil {
+                    // now user can use app
+                    
+                } else {
+                    // might be an error to display
+                    if let errorString = signupError.userInfo?["error"] as? NSString {
+                        error = errorString
+                    } else {
+                        error = "Oops. Something went wrong."
+                    }
+                    
+                    self.displayAlert("Could Not Sign Up", error: error)
+                }
+            }
+        }
+    }
+    
+    // MARK: Alert Functions
+    
+    func displayAlert(title:String, error:String)
+    {
+        // display error alert
+        var errortAlert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        errortAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { action in
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        
+        self.presentViewController(errortAlert, animated: true, completion: nil)
     }
 }

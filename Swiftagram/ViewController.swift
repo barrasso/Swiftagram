@@ -107,12 +107,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 // MARK: Extra Parse Methods
 
 /********
-// set up Parse application
-Parse.setApplicationId("wabvjYL0hvJHpUDFGNceYAM6f7zrlS9s3qRBqn9O",
-clientKey: "JHBuhVrPu6neUZwwydgKQMqDOSIlq8eCdtzRKDtA")
-********/
-
-/********
 //////////////////////////////////////////////////
 // CREATING AND SAVING NEW PARSE CLASS + OBJECT //
 //////////////////////////////////////////////////

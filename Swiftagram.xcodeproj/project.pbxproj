@@ -28,6 +28,7 @@
 		04ACE6211A599F8100E0BBB5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04ACE6201A599F8100E0BBB5 /* StoreKit.framework */; };
 		04ACE6231A599F8600E0BBB5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04ACE6221A599F8600E0BBB5 /* SystemConfiguration.framework */; };
 		04ACE6281A59A3C300E0BBB5 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04ACE6271A59A3C300E0BBB5 /* libsqlite3.dylib */; };
+		04ACE6301A5AF01D00E0BBB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE62F1A5AF01D00E0BBB5 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		04ACE6221A599F8600E0BBB5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		04ACE6241A599FFD00E0BBB5 /* Swiftagram-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swiftagram-Bridging-Header.h"; sourceTree = "<group>"; };
 		04ACE6271A59A3C300E0BBB5 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		04ACE62F1A5AF01D00E0BBB5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			children = (
 				04ACE5DD1A535E5200E0BBB5 /* AppDelegate.swift */,
 				04ACE5DF1A535E5200E0BBB5 /* ViewController.swift */,
+				04ACE62F1A5AF01D00E0BBB5 /* LoginViewController.swift */,
 				04ACE5E11A535E5200E0BBB5 /* Main.storyboard */,
 				04ACE5E41A535E5200E0BBB5 /* Images.xcassets */,
 				04ACE5E61A535E5200E0BBB5 /* LaunchScreen.xib */,
@@ -282,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04ACE6301A5AF01D00E0BBB5 /* LoginViewController.swift in Sources */,
 				04ACE5E01A535E5200E0BBB5 /* ViewController.swift in Sources */,
 				04ACE5DE1A535E5200E0BBB5 /* AppDelegate.swift in Sources */,
 			);

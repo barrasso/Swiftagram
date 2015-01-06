@@ -4,68 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
-            <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Swiftagram" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UcY-xY-IaJ">
-                                <rect key="frame" x="130" y="337" width="132" height="76"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" title="Pick">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pickImage:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="arS-a8-3Xu"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TsZ-8r-FRO">
-                                <rect key="frame" x="39" y="20" width="315" height="309"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoq-MJ-ehX">
-                                <rect key="frame" x="152" y="407" width="88" height="52"/>
-                                <state key="normal" title="Pause">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pause:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cuM-W5-W5r"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBH-XP-OWc">
-                                <rect key="frame" x="163" y="467" width="67" height="40"/>
-                                <state key="normal" title="Restore">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="restore:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="w9I-cO-PXx"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUT-nt-AHq">
-                                <rect key="frame" x="153" y="515" width="87" height="50"/>
-                                <state key="normal" title="Create Alert">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="createAlert:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="AoK-tT-jA3"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="pickedImage" destination="TsZ-8r-FRO" id="a2k-YX-A23"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
         <!--Login View Controller-->
         <scene sceneID="QQN-hG-rdv">
             <objects>
@@ -106,8 +44,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUB-6X-DsV">
-                                <rect key="frame" x="139" y="367" width="96" height="32"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUB-6X-DsV">
+                                <rect key="frame" x="140" y="380" width="96" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="96" id="8Tp-Gl-TXM"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="cui-8X-WhK"/>
@@ -123,7 +61,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already registered?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQn-Xe-Phl">
-                                <rect key="frame" x="101" y="414" width="118" height="21"/>
+                                <rect key="frame" x="101" y="427" width="118" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="mR0-6z-Xor"/>
                                     <constraint firstAttribute="width" constant="118" id="ouL-Tv-wkr"/>
@@ -132,8 +70,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnI-jb-62x">
-                                <rect key="frame" x="216" y="410" width="67" height="32"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnI-jb-62x">
+                                <rect key="frame" x="227" y="423" width="67" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="5AV-9K-lLh"/>
                                     <constraint firstAttribute="width" constant="67" id="EZA-ZS-Uiq"/>
@@ -147,7 +85,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YyU-23-3fL">
-                                <rect key="frame" x="166" y="415" width="42" height="21"/>
+                                <rect key="frame" x="166" y="428" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="G9X-IG-bYI"/>
                                     <constraint firstAttribute="width" constant="42" id="v2i-fg-fYi"/>
@@ -176,7 +114,6 @@
                             <constraint firstAttribute="centerX" secondItem="i7F-vJ-fhy" secondAttribute="centerX" id="Bvd-O7-hAe"/>
                             <constraint firstAttribute="centerX" secondItem="YyU-23-3fL" secondAttribute="centerX" id="FlJ-rM-aYb"/>
                             <constraint firstAttribute="centerX" secondItem="yB4-b8-n0A" secondAttribute="centerX" id="KCW-Is-uTw"/>
-                            <constraint firstItem="NUB-6X-DsV" firstAttribute="top" secondItem="KC9-ym-efr" secondAttribute="bottom" constant="8" id="Nnf-w2-gMh"/>
                             <constraint firstItem="YyU-23-3fL" firstAttribute="top" secondItem="NUB-6X-DsV" secondAttribute="bottom" constant="16" id="Qe5-8U-6Qp"/>
                             <constraint firstAttribute="centerX" secondItem="KC9-ym-efr" secondAttribute="centerX" id="SEd-uU-m4o"/>
                             <constraint firstItem="RFu-PD-dSw" firstAttribute="top" secondItem="i7F-vJ-fhy" secondAttribute="bottom" constant="37" id="Vu5-Qh-PTs"/>
@@ -187,7 +124,6 @@
                             <constraint firstItem="yB4-b8-n0A" firstAttribute="top" secondItem="i7F-vJ-fhy" secondAttribute="bottom" constant="141" id="hlc-JA-FMo"/>
                             <constraint firstItem="i7F-vJ-fhy" firstAttribute="top" secondItem="hzZ-Gz-KC6" secondAttribute="bottom" constant="59" id="rOi-te-MBO"/>
                             <constraint firstItem="YyU-23-3fL" firstAttribute="leading" secondItem="MQn-Xe-Phl" secondAttribute="trailing" constant="-53" id="rbd-Mo-MNh"/>
-                            <constraint firstAttribute="centerX" secondItem="NUB-6X-DsV" secondAttribute="centerX" constant="-1" id="wsP-Qz-NVl"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

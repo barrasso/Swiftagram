@@ -34,6 +34,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        println(PFUser.currentUser())
     }
     
     override func didReceiveMemoryWarning()

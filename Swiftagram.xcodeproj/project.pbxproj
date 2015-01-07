@@ -29,6 +29,7 @@
 		04ACE6231A599F8600E0BBB5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04ACE6221A599F8600E0BBB5 /* SystemConfiguration.framework */; };
 		04ACE6281A59A3C300E0BBB5 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04ACE6271A59A3C300E0BBB5 /* libsqlite3.dylib */; };
 		04ACE6301A5AF01D00E0BBB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE62F1A5AF01D00E0BBB5 /* LoginViewController.swift */; };
+		04ACE6321A5D955400E0BBB5 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE6311A5D955400E0BBB5 /* UserTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		04ACE6241A599FFD00E0BBB5 /* Swiftagram-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swiftagram-Bridging-Header.h"; sourceTree = "<group>"; };
 		04ACE6271A59A3C300E0BBB5 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		04ACE62F1A5AF01D00E0BBB5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		04ACE6311A5D955400E0BBB5 /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,11 +142,12 @@
 			children = (
 				04ACE5DD1A535E5200E0BBB5 /* AppDelegate.swift */,
 				04ACE62F1A5AF01D00E0BBB5 /* LoginViewController.swift */,
-				04ACE5DF1A535E5200E0BBB5 /* ViewController.swift */,
+				04ACE6311A5D955400E0BBB5 /* UserTableViewController.swift */,
 				04ACE5E11A535E5200E0BBB5 /* Main.storyboard */,
 				04ACE5E41A535E5200E0BBB5 /* Images.xcassets */,
 				04ACE5E61A535E5200E0BBB5 /* LaunchScreen.xib */,
 				04ACE5DB1A535E5200E0BBB5 /* Supporting Files */,
+				04ACE6331A5D956F00E0BBB5 /* Misc */,
 			);
 			path = Swiftagram;
 			sourceTree = "<group>";
@@ -183,6 +186,14 @@
 				04ACE60A1A55F24F00E0BBB5 /* ParseUI.framework */,
 			);
 			path = "parse-library-1.6.1";
+			sourceTree = "<group>";
+		};
+		04ACE6331A5D956F00E0BBB5 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				04ACE5DF1A535E5200E0BBB5 /* ViewController.swift */,
+			);
+			name = Misc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +299,7 @@
 			files = (
 				04ACE6301A5AF01D00E0BBB5 /* LoginViewController.swift in Sources */,
 				04ACE5E01A535E5200E0BBB5 /* ViewController.swift in Sources */,
+				04ACE6321A5D955400E0BBB5 /* UserTableViewController.swift in Sources */,
 				04ACE5DE1A535E5200E0BBB5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

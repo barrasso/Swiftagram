@@ -4,6 +4,51 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="EFL-Sl-88b">
+            <objects>
+                <tableViewController id="zF4-5w-yqf" customClass="UserTableViewController" customModule="Swiftagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yXN-42-hCJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Cl3-Ss-jqO">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cl3-Ss-jqO" id="GOX-oi-giG">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zF4-5w-yqf" id="tWx-OT-qLS"/>
+                            <outlet property="delegate" destination="zF4-5w-yqf" id="QL9-ac-ym3"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="B6J-0x-iyy"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FPN-de-aSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1138.5" y="743.5"/>
+        </scene>
+        <!--NavController-->
+        <scene sceneID="udm-Dl-13z">
+            <objects>
+                <navigationController title="NavController" id="jAM-lV-0d8" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LxO-DE-lkj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zF4-5w-yqf" kind="relationship" relationship="rootViewController" id="ESG-y2-RVe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="60t-ao-keF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="535.5" y="743.5"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="QQN-hG-rdv">
             <objects>
@@ -134,11 +179,12 @@
                         <outlet property="signupButton" destination="NUB-6X-DsV" id="jij-5b-m3f"/>
                         <outlet property="signupToggleButton" destination="rnI-jb-62x" id="1V1-PY-O6v"/>
                         <outlet property="username" destination="yB4-b8-n0A" id="Nbi-07-bDk"/>
+                        <segue destination="jAM-lV-0d8" kind="show" identifier="jumpToUserTable" id="doL-Mw-q46"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kkQ-bn-QC0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="324.5" y="1083.5"/>
+            <point key="canvasLocation" x="-33.5" y="743.5"/>
         </scene>
     </scenes>
 </document>

@@ -34,13 +34,19 @@ class LoginViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewDidAppear(animated: Bool)
+    {
         // get current user cached on disk
         var currentUser = PFUser.currentUser()
         
         if currentUser != nil {
+            
             // go to table segue
-            println("go to table segue")
+            self.performSegueWithIdentifier("jumpToUserTable", sender: self)
+            
+            
         } else {
             // wait for signup/login
         }

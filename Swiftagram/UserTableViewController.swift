@@ -10,7 +10,7 @@ import UIKit
 
 class UserTableViewController: UITableViewController {
     
-    // cell array
+    // users cell array
     var users = [""]
     
     // MARK: View Initialization
@@ -19,23 +19,24 @@ class UserTableViewController: UITableViewController {
     {
         super.viewDidLoad()
         
+        // query for users
         var userQuery = PFUser.query()
         userQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
             
-            
+            // clean up users array
             self.users.removeAll(keepCapacity: true)
             
-            for object in objects {
-                
+            // for all found objects
+            for object in objects
+            {
+                // get the user and add name to array
                 var user:PFUser = object as PFUser
-                
                 self.users.append(user.username)
             }
             
+            // reload table view
             self.tableView.reloadData()
         })
-        
-        
     }
     
     override func didReceiveMemoryWarning()
@@ -43,24 +44,51 @@ class UserTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
         return 1;
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return users.count;
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        // get cell
         var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
         
+        // set cell text label
         cell.textLabel?.text = users[indexPath.row]
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        // get selected cell
+        var cell:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
         
+        // if cell is checked
+        if cell.accessoryType == UITableViewCellAccessoryType.Checkmark {
+            // uncheck cell
+            cell.accessoryType = UITableViewCellAccessoryType.None
+        }
+        else {
+            // check cell
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            
+            // create parse object
+            var following = PFObject(className: "followers")
+            
+            // set following/follower names for respective object
+            following["following"] = cell.textLabel?.text
+            following["follower"] = PFUser.currentUser().username
+            
+            // save object
+            following.saveInBackgroundWithTarget(nil, selector: nil)
+        }
         
     }
 

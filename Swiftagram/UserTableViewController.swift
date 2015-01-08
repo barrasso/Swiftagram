@@ -74,6 +74,9 @@ class UserTableViewController: UITableViewController {
         if cell.accessoryType == UITableViewCellAccessoryType.Checkmark {
             // uncheck cell
             cell.accessoryType = UITableViewCellAccessoryType.None
+            
+            // must remove following/follower names for respective object
+            
         }
         else {
             // check cell

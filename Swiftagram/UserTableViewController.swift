@@ -29,9 +29,15 @@ class UserTableViewController: UITableViewController {
             // for all found objects
             for object in objects
             {
-                // get the user and add name to array
+                // get the user
                 var user:PFUser = object as PFUser
-                self.users.append(user.username)
+                
+                // check for current user's username
+                if object.username != PFUser.currentUser().username
+                {
+                    // add to users array
+                    self.users.append(user.username)
+                }
             }
             
             // reload table view

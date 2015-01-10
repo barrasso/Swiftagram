@@ -37,11 +37,12 @@ class UserTableViewController: UITableViewController {
                 {
                     // add to users array
                     self.users.append(user.username)
+                    
+                    // reload table view
+                    self.tableView.reloadData()
                 }
+                
             }
-            
-            // reload table view
-            self.tableView.reloadData()
         })
     }
     
@@ -65,6 +66,23 @@ class UserTableViewController: UITableViewController {
         // get cell
         var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
         
+        // query for who the current user is following
+        var query = PFQuery(className:"followers")
+        query.whereKey("follower", equalTo:PFUser.currentUser().username)
+        query.whereKey("following", equalTo: self.users[indexPath.row])
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]!, error: NSError!) -> Void in
+            if error == nil {
+                // check objects count
+                if objects.count > 0 {
+                    // set specific cell to be checked
+                    cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+                }
+            } else {
+                NSLog("Error: %@", error)
+            }
+        }
+        
         // set cell text label
         cell.textLabel?.text = users[indexPath.row]
         
@@ -82,6 +100,22 @@ class UserTableViewController: UITableViewController {
             cell.accessoryType = UITableViewCellAccessoryType.None
             
             // must remove following/follower names for respective object
+            var query = PFQuery(className:"followers")
+            query.whereKey("follower", equalTo:PFUser.currentUser().username)
+            query.whereKey("following", equalTo:cell.textLabel?.text)
+            query.findObjectsInBackgroundWithBlock {
+                (objects: [AnyObject]!, error: NSError!) -> Void in
+                if error == nil {
+                    for object in objects {
+                        // delete all objects
+                        object.deleteInBackgroundWithTarget(nil, selector: nil)
+                    }
+                    
+                } else {
+                    // Log details of the failure
+                    NSLog("Error: %@", error)
+                }
+            }
             
         }
         else {

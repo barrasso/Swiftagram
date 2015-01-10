@@ -46,7 +46,6 @@ class LoginViewController: UIViewController {
             // go to table segue
             self.performSegueWithIdentifier("jumpToUserTable", sender: self)
             
-            
         } else {
             // wait for signup/login
         }

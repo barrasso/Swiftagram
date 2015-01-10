@@ -13,43 +13,69 @@ class UserTableViewController: UITableViewController {
     // users cell array
     var users = [""]
     
+    // pull to refresh control
+    var refresher: UIRefreshControl!
+    
     // MARK: View Initialization
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        // query for users
-        var userQuery = PFUser.query()
-        userQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
-            
-            // clean up users array
-            self.users.removeAll(keepCapacity: true)
-            
-            // for all found objects
-            for object in objects
-            {
-                // get the user
-                var user:PFUser = object as PFUser
-                
-                // check for current user's username
-                if object.username != PFUser.currentUser().username
-                {
-                    // add to users array
-                    self.users.append(user.username)
-                    
-                    // reload table view
-                    self.tableView.reloadData()
-                }
-                
-            }
-        })
+        // define refresher
+        refresher = UIRefreshControl()
+        refresher.attributedTitle = NSAttributedString(string: "pull me")
+        refresher.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refresher)
+        
+        // update all users
+        updateUsers()
     }
     
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
     }
+    
+    // MARK: User Functions
+    
+    func updateUsers()
+    {
+        // query for users
+        var userQuery = PFUser.query()
+        userQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
+                // clean up users array
+                self.users.removeAll(keepCapacity: true)
+                
+                // for all found objects
+                for object in objects
+                {
+                    // get the user
+                    var user:PFUser = object as PFUser
+                    
+                    // check for current user's username
+                    if object.username != PFUser.currentUser().username
+                    {
+                        // add to users array
+                        self.users.append(user.username)
+                        
+                        // reload table view
+                        self.tableView.reloadData()
+                    }
+                }
+            // stop refreshing
+            self.refresher.endRefreshing()
+        })
+
+    }
+    
+    func refresh()
+    {
+        updateUsers()
+        NSLog("Resfreshed table.")
+    }
+    
+    // MARK: Table View Functions
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {

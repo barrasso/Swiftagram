@@ -13,7 +13,7 @@ class UserTableViewController: UITableViewController {
     // users cell array
     var users = [""]
     
-    // pull to refresh control
+    // refresh control
     var refresher: UIRefreshControl!
     
     // MARK: View Initialization

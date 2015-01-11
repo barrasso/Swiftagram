@@ -10,11 +10,29 @@ import UIKit
 
 class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    // MARK: Variables
+    
+    var photoSelected:Bool = false
+    
     // MARK: Outlets
+    
     @IBOutlet weak var imageToPost: UIImageView!
     @IBOutlet weak var shareTextField: UITextField!
     
+    // MARK: View Initialization
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+    }
+    
+    override func didReceiveMemoryWarning()
+    {
+        super.didReceiveMemoryWarning()
+    }
+    
     // MARK: Actions
+    
     @IBAction func chooseImage(sender: AnyObject)
     {
         // init picker controller
@@ -25,8 +43,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         // access photo library
         image.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        // access camera
-        //image.sourceType = UIImagePickerControllerSourceType.Camera
         
         // allows user to edit picture
         image.allowsEditing = false
@@ -37,7 +53,18 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBAction func postImage(sender: AnyObject)
     {
+        // define error
+        var error = ""
         
+        // check if user has chosen an image
+        if (photoSelected == false) {
+            error = "Please select an image to post"
+        }
+        
+        // check for error string
+        if (error != "") {
+            displayAlert("Error posting image", error: error)
+        }
     }
     
     
@@ -51,22 +78,24 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // close image picker
         self.dismissViewControllerAnimated(true, completion: nil)
         
-        // set chosen image to UIImage
+        // set chosen image to UIImage on view
         imageToPost.image = image
+        
+        // set photo selected flag to true
+        photoSelected = true
     }
     
-    // MARK: View Initialization
+    // MARK: Alert Functions
     
-    override func viewDidLoad()
+    func displayAlert(title:String, error:String)
     {
-        super.viewDidLoad()
+        // display error alert
+        var errortAlert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        errortAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { action in
+            // close popup and do nothing
+        }))
+        
+        self.presentViewController(errortAlert, animated: true, completion: nil)
     }
-
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-    }
-    
-    
 
 }

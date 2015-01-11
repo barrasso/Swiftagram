@@ -160,7 +160,8 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     // MARK: Text Field Delegate Functions
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
         shareTextField.resignFirstResponder()
         return true
     }

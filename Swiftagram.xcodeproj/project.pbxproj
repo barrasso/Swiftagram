@@ -30,6 +30,8 @@
 		04ACE6281A59A3C300E0BBB5 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04ACE6271A59A3C300E0BBB5 /* libsqlite3.dylib */; };
 		04ACE6301A5AF01D00E0BBB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE62F1A5AF01D00E0BBB5 /* LoginViewController.swift */; };
 		04ACE6321A5D955400E0BBB5 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE6311A5D955400E0BBB5 /* UserTableViewController.swift */; };
+		04ACE6351A623A1900E0BBB5 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE6341A623A1900E0BBB5 /* PostViewController.swift */; };
+		04ACE6371A623B5200E0BBB5 /* blank-woman-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 04ACE6361A623B5200E0BBB5 /* blank-woman-placeholder.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		04ACE6271A59A3C300E0BBB5 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		04ACE62F1A5AF01D00E0BBB5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		04ACE6311A5D955400E0BBB5 /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
+		04ACE6341A623A1900E0BBB5 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		04ACE6361A623B5200E0BBB5 /* blank-woman-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blank-woman-placeholder.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,10 +147,12 @@
 				04ACE5DD1A535E5200E0BBB5 /* AppDelegate.swift */,
 				04ACE62F1A5AF01D00E0BBB5 /* LoginViewController.swift */,
 				04ACE6311A5D955400E0BBB5 /* UserTableViewController.swift */,
+				04ACE6341A623A1900E0BBB5 /* PostViewController.swift */,
 				04ACE5E11A535E5200E0BBB5 /* Main.storyboard */,
 				04ACE5E41A535E5200E0BBB5 /* Images.xcassets */,
 				04ACE5E61A535E5200E0BBB5 /* LaunchScreen.xib */,
 				04ACE5DB1A535E5200E0BBB5 /* Supporting Files */,
+				04ACE6381A623B5B00E0BBB5 /* Images */,
 				04ACE6331A5D956F00E0BBB5 /* Misc */,
 			);
 			path = Swiftagram;
@@ -194,6 +200,14 @@
 				04ACE5DF1A535E5200E0BBB5 /* ViewController.swift */,
 			);
 			name = Misc;
+			sourceTree = "<group>";
+		};
+		04ACE6381A623B5B00E0BBB5 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				04ACE6361A623B5200E0BBB5 /* blank-woman-placeholder.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04ACE5E31A535E5200E0BBB5 /* Main.storyboard in Resources */,
+				04ACE6371A623B5200E0BBB5 /* blank-woman-placeholder.png in Resources */,
 				04ACE5E81A535E5200E0BBB5 /* LaunchScreen.xib in Resources */,
 				04ACE5E51A535E5200E0BBB5 /* Images.xcassets in Resources */,
 			);
@@ -301,6 +316,7 @@
 				04ACE5E01A535E5200E0BBB5 /* ViewController.swift in Sources */,
 				04ACE6321A5D955400E0BBB5 /* UserTableViewController.swift in Sources */,
 				04ACE5DE1A535E5200E0BBB5 /* AppDelegate.swift in Sources */,
+				04ACE6351A623A1900E0BBB5 /* PostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

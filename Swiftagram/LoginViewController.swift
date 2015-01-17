@@ -51,6 +51,18 @@ class LoginViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(animated: Bool)
+    {
+        // hide nar bar
+        self.navigationController?.navigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(animated: Bool)
+    {
+        // show nav bar
+        self.navigationController?.navigationBarHidden = false
+    }
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -150,6 +162,8 @@ class LoginViewController: UIViewController {
                         // now user can use app
                         NSLog("Signed Up.")
 
+                        // go to table segue
+                        self.performSegueWithIdentifier("jumpToUserTable", sender: self)
                         
                     } else {
                         
@@ -178,6 +192,9 @@ class LoginViewController: UIViewController {
                         // stop animation and end ignoring events
                         self.activityIndicator.stopAnimating()
                         UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                        
+                        // perform user table segue
+                        self.performSegueWithIdentifier("jumpToUserTable", sender: self)
                         
                         NSLog("Logged In.")
                         

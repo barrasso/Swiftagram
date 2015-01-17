@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YmO-fr-2bC">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Users-->
@@ -94,15 +95,28 @@
                                     <constraint firstAttribute="width" constant="200" id="x1k-8o-p5j"/>
                                 </constraints>
                             </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYe-LJ-ZDt">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Logout" id="gjv-br-itB">
+                                        <connections>
+                                            <action selector="logout:" destination="GiH-0C-4tV" id="XeX-Ge-gmR"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="JVM-dY-IDo" firstAttribute="top" secondItem="KSO-Ti-nCW" secondAttribute="bottom" constant="30" id="HGy-7Y-Sqh"/>
+                            <constraint firstItem="tYe-LJ-ZDt" firstAttribute="leading" secondItem="Qmw-75-LBB" secondAttribute="leadingMargin" constant="-16" id="Ucv-cS-6jm"/>
                             <constraint firstItem="9Jg-HG-O2W" firstAttribute="top" secondItem="xAP-vU-gti" secondAttribute="bottom" constant="46" id="XFj-5Y-S6V"/>
                             <constraint firstItem="QLS-wR-d6O" firstAttribute="top" secondItem="9Jg-HG-O2W" secondAttribute="bottom" constant="61" id="ZZn-eN-Dt7"/>
                             <constraint firstAttribute="centerX" secondItem="QLS-wR-d6O" secondAttribute="centerX" id="kPP-12-csY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tYe-LJ-ZDt" secondAttribute="trailing" constant="-16" id="lSP-ZN-Om3"/>
                             <constraint firstAttribute="centerX" secondItem="JVM-dY-IDo" secondAttribute="centerX" id="pFA-Hz-9fC"/>
                             <constraint firstAttribute="centerX" secondItem="9Jg-HG-O2W" secondAttribute="centerX" id="uOz-xj-Okb"/>
+                            <constraint firstItem="SjO-Gt-5Uk" firstAttribute="top" secondItem="tYe-LJ-ZDt" secondAttribute="bottom" id="uwq-ND-xdB"/>
                             <constraint firstItem="xAP-vU-gti" firstAttribute="top" secondItem="JVM-dY-IDo" secondAttribute="bottom" constant="8" id="w3Q-or-Gg6"/>
                             <constraint firstAttribute="centerX" secondItem="xAP-vU-gti" secondAttribute="centerX" id="z16-U1-aL6"/>
                         </constraints>
@@ -111,6 +125,7 @@
                     <connections>
                         <outlet property="imageToPost" destination="JVM-dY-IDo" id="6ai-nF-lL1"/>
                         <outlet property="shareTextField" destination="9Jg-HG-O2W" id="xQM-0S-YUA"/>
+                        <segue destination="YmO-fr-2bC" kind="show" identifier="logout" id="vsi-vv-qH6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9kA-u4-puy" userLabel="First Responder" sceneMemberID="firstResponder"/>

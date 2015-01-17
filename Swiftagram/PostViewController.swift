@@ -43,7 +43,19 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         super.didReceiveMemoryWarning()
     }
     
-    // MARK: Actions
+    // MARK: User Actions
+    
+    @IBAction func logout(sender: AnyObject)
+    {
+        // logout parse user
+        PFUser.logOut()
+        
+        // init logout segue
+        self.performSegueWithIdentifier("logout", sender: self)
+    }
+    
+    
+    // MARK: Image Actions
     
     @IBAction func chooseImage(sender: AnyObject)
     {
@@ -136,7 +148,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                     }
                 }
             }
-            
         }
     }
     

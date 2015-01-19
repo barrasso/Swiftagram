@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04045CCD1A6D9FDB00DC5276 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04045CCC1A6D9FDB00DC5276 /* FeedTableViewController.swift */; };
+		04045CCF1A6DA44C00DC5276 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04045CCE1A6DA44C00DC5276 /* Cell.swift */; };
 		04ACE5DE1A535E5200E0BBB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE5DD1A535E5200E0BBB5 /* AppDelegate.swift */; };
 		04ACE5E01A535E5200E0BBB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE5DF1A535E5200E0BBB5 /* ViewController.swift */; };
 		04ACE5E31A535E5200E0BBB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04ACE5E11A535E5200E0BBB5 /* Main.storyboard */; };
@@ -45,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04045CCC1A6D9FDB00DC5276 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		04045CCE1A6DA44C00DC5276 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		04ACE5D81A535E5200E0BBB5 /* Swiftagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swiftagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04ACE5DC1A535E5200E0BBB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04ACE5DD1A535E5200E0BBB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,8 +150,10 @@
 			children = (
 				04ACE5DD1A535E5200E0BBB5 /* AppDelegate.swift */,
 				04ACE62F1A5AF01D00E0BBB5 /* LoginViewController.swift */,
-				04ACE6311A5D955400E0BBB5 /* UserTableViewController.swift */,
 				04ACE6341A623A1900E0BBB5 /* PostViewController.swift */,
+				04ACE6311A5D955400E0BBB5 /* UserTableViewController.swift */,
+				04045CCC1A6D9FDB00DC5276 /* FeedTableViewController.swift */,
+				04045CCE1A6DA44C00DC5276 /* Cell.swift */,
 				04ACE5E11A535E5200E0BBB5 /* Main.storyboard */,
 				04ACE5E41A535E5200E0BBB5 /* Images.xcassets */,
 				04ACE5E61A535E5200E0BBB5 /* LaunchScreen.xib */,
@@ -313,6 +319,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				04ACE6301A5AF01D00E0BBB5 /* LoginViewController.swift in Sources */,
+				04045CCD1A6D9FDB00DC5276 /* FeedTableViewController.swift in Sources */,
+				04045CCF1A6DA44C00DC5276 /* Cell.swift in Sources */,
 				04ACE5E01A535E5200E0BBB5 /* ViewController.swift in Sources */,
 				04ACE6321A5D955400E0BBB5 /* UserTableViewController.swift in Sources */,
 				04ACE5DE1A535E5200E0BBB5 /* AppDelegate.swift in Sources */,
@@ -521,6 +529,7 @@
 				04ACE5F91A535E5200E0BBB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04ACE5FA1A535E5200E0BBB5 /* Build configuration list for PBXNativeTarget "SwiftagramTests" */ = {
 			isa = XCConfigurationList;
@@ -529,6 +538,7 @@
 				04ACE5FC1A535E5200E0BBB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
